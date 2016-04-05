@@ -45,7 +45,6 @@ plugins=(vi-mode tmux thefuck archlinux sudo common-aliases dircycle per-directo
 # User configuration
 echo $PATH >> $HOME/buffer
 
-export ZSH_CUSTOM=$HOME/dotfiles/omzsh
 source $ZSH/oh-my-zsh.sh
 source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

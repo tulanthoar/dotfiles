@@ -26,6 +26,8 @@ function p-paste() {
     zle -R -c
 }
 zle -N p-paste
+alias F="fuck"
+alias qmultiplexer="byobu-tmux"
 alias pyls="ls *.py|percol|xargs python3"
 alias xx="exit"
 alias xmo="xmodmap ~/xmo; setxkbmap -option altwin:alt_super_win -option shift:both_shiftlock; xmodmap ~/xmo;"
