@@ -3,6 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 export EDITOR=nvim
 export DUSH=/usr/share
 export DUBIN=/usr/bin
+export ZSH_CUSTOM=$HOME/dotfiles/omzsh
 
 export KEYTIMEOUT=3
 ZSH_THEME=""

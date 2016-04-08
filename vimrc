@@ -6,6 +6,8 @@ Plugin 'ascenator/L9'
 Plugin 'terryma/vim-expand-region'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-scripts/YankRing.vim'
+let g:yankring_replace_n_pkey = '<F3>'
+let g:yankring_replace_n_nkey = '<F4>'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired.git'
@@ -46,18 +48,22 @@ let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_b = '%{getcwd()}'
-let g:airline_section_c = '%t'
+"let g:airline_section_c = '%t'
 let g:python3_host_prog = '/bin/python3'
 let g:powerline_pycmd="py3"
-let NERDTreeIgnore=['\\.pyc', '\\\~$', '\\.swo$', '\\.swp$', '\\.git', '\.pyc$', '__pycache__']
+let NERDTreeIgnore=['\pyc$', '\~$[[file]]', '\swp$', '\git$', '\pyc$', '\pycache__$[[dir]]]']
 let NERDTreeQuitOnOpen=1
+let NERDTreeCascadeOpenSingleChildDir=1
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=35
 let g:multi_cursor_next_key="\<C-s>"
+let g:yankring_min_element_length = 2
 
 set cursorline
 set cursorcolumn
 let &l:colorcolumn=join(range(1,120,10),',')
+autocmd VimEnter,Colorscheme * :hi ColorColumn ctermbg=lightgrey
+autocmd VimEnter,Colorscheme * :hi CursorColumn ctermbg=black
 set autoread
 set ai
 set background=dark
@@ -90,7 +96,7 @@ set smartcase
 set smarttab
 set so=5 "ensure 5 lines are above/below cursor when scrolling
 set splitright
-set timeoutlen=600
+set timeoutlen=1200
 set ts=2 sw=2 et
 set undofile
 set viminfo^=% " Remember info about open buffers on close
@@ -100,47 +106,53 @@ set wildignorecase
 set wildmenu
 set wrap
 
+map css yss
 "map <F2> :tabnew<CR>
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr>
+"map <leader>e :NERDTreeFind<CR>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 map Q gq
-inoremap <C-U> <C-G>u<C-U>
-nnoremap Y y$
-
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
+"inoremap <C-U> <C-G>u<C-U>
+"nnoremap Y y$
+map  <Leader>p0  :YRGetElem 1<CR>
+map  <Leader>pp  :YRPop<CR>
+map  <Leader>f       <Plug>(easymotion-bd-f)
+nmap <Leader>f       <Plug>(easymotion-overwin-f)
 nmap         <space> <Plug>(easymotion-overwin-f2)
-map  <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
-map <leader>e :NERDTreeFind<CR>
+map  <Leader>L       <Plug>(easymotion-bd-jk)
+nmap <Leader>L       <Plug>(easymotion-overwin-line)
+map  <Leader>e       <Plug>(easymotion-bd-w)
+nmap <Leader>e       <Plug>(easymotion-overwin-w)
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
-map <F6> "ky
-map <S-F6> "kp
-map <F5> "jy
-map <S-F5> "jp
-map <F4> ml
-map <S-F4> 'l
-map <F3> mk
-map <S-F3> 'k
-map <S-F2> 'j
-map <Leader><space> /
+"map <F6> "ky
+"map <S-F6> "kp
+"map <F5> "jy
+"map <S-F5> "jp
+"map <F4> ml
+"map <S-F4> 'l
+"map <F3> mk
+"map <S-F3> 'k
+"map <S-F2> 'j
+"map <Leader><space> /
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-map j gj
-map k gk
+"map j gj
+"map k gk
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-nmap 0 ^
+"nmap 0 ^
+
+"map K <Plug>(expand_region_expand)
+"map J <Plug>(expand_region_shrink)
+
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
@@ -159,18 +171,18 @@ map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 
 " Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
+map <leader>t<space> :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
-map <leader>t<leader> :tabnext
+map <leader>tn :tabnext
 
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+nmap <Leader>tt :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 " Don't close window, when deleting a buffer

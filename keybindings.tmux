@@ -30,7 +30,21 @@ unbind-key -n C-S-F4
 unbind-key -n C-S-F5
 unbind-key -n C-S-F8
 unbind-key -n C-S-F12
-
+unbind-key -n M-NPage
+unbind-key -n M-PPage
+unbind-key -n M-Up
+unbind-key -n M-Down
+unbind-key -n M-Left
+unbind-key -n M-Right
+unbind-key -n S-Up
+unbind-key -n S-Down
+unbind-key -n S-Left
+unbind-key -n S-Right
+unbind-key -n M-S-Up
+unbind-key -n M-S-Down
+unbind-key -n M-S-Left
+unbind-key -n M-S-Right
+unbind-key -n C-S-F3
 unbind-key -n F2
 
 unbind-key -n M-F11
