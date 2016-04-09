@@ -120,13 +120,15 @@ map Q gq
 "nnoremap Y y$
 map  <Leader>p0  :YRGetElem 1<CR>
 map  <Leader>pp  :YRPop<CR>
-map  <Leader>f       <Plug>(easymotion-bd-f)
-nmap <Leader>f       <Plug>(easymotion-overwin-f)
-nmap         <space> <Plug>(easymotion-overwin-f2)
-map  <Leader>L       <Plug>(easymotion-bd-jk)
-nmap <Leader>L       <Plug>(easymotion-overwin-line)
+map  <Leader>f       <Plug>(easymotion-bd-fl)
+let g:EasyMotion_startofline = 0
+map <Leader>J <Plug>(easymotion-sol-j)
+map <Leader>K <Plug>(easymotion-sol-k)
+map <Leader>f       <Plug>(easymotion-bd-fl)
+map <Leader>t       <Plug>(easymotion-bd-tl)
+nmap         <space> <Plug>(easymotion-bd-f2)
+map  <Leader>g       <Plug>(easymotion-bd-jk)
 map  <Leader>e       <Plug>(easymotion-bd-w)
-nmap <Leader>e       <Plug>(easymotion-overwin-w)
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>

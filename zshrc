@@ -9,7 +9,7 @@ export KEYTIMEOUT=3
 ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"antigen use oh-my-zsh
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -41,12 +41,20 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd.mm.yyyy"
 #colorize zsh-syntax-highlighting
-plugins=(vi-mode tmux thefuck archlinux sudo common-aliases dircycle per-directory-history z colored-man-pages copydir copyfile extract)
-
+#plugins=(history-substring-search vi-mode tmux thefuck archlinux sudo common-aliases dircycle per-directory-history z colored-man-pages copydir copyfile extract)
+plugins=()
 # User configuration
 echo $PATH >> $HOME/buffer
-
-source $ZSH/oh-my-zsh.sh
+source $HOME/antigen/antigen.zsh
+antigen bundle RobSis/zsh-completion-generator
+antigen bundle srijanshetty/zsh-pip-completion
+antigen use oh-my-zsh
+for p (history-substring-search vi-mode tmux thefuck archlinux sudo common-aliases dircycle per-directory-history z colored-man-pages copyfile copydir extract);
+  do antigen bundle $p;
+done;
+antigen apply
+source $HOME/dotfiles/myrc.zsh
+#source $ZSH/oh-my-zsh.sh
 source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 BKEYS

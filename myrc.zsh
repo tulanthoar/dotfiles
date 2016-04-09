@@ -26,7 +26,8 @@ function p-paste() {
     zle -R -c
 }
 zle -N p-paste
-alias F="fuck"
+alias zz="z ~"
+alias fk="fuck"
 alias qmultiplexer="byobu-tmux"
 alias pyls="ls *.py|percol|xargs python3"
 alias xx="exit"
@@ -70,7 +71,7 @@ bindkey '^[h' percol_select_history
 bindkey '^[v' p-paste
 bindkey "^[f" forward-word
 bindkey "^[b" backward-word
-function BKEYS() { 
+function BKEYS() {
   bindkey -rM viins "^[";
   bindkey -M viins "\e" vi-cmd-mode;
   bindkey -M viins "^[[3~" vi-delete-char;
