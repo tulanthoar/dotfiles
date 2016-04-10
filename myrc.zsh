@@ -35,6 +35,8 @@ alias xmo="xmodmap ~/xmo; setxkbmap -option altwin:alt_super_win -option shift:b
 alias cpf='copyfile'
 alias cpd='copydir'
 eval infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' | tic -
+export GHUB="https://github.com"
+export TUL="tulanthoar"
 export JAVA_HOME="/usr/lib/jvm/default-jvm"
 export GOPATH="~/golang"
 export PATH="$PATH:$GOPATH/bin"
