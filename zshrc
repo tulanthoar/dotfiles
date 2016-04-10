@@ -1,15 +1,12 @@
 bindkey -v
-export ZSH=$HOME/.oh-my-zsh
 export EDITOR=nvim
 export DUSH=/usr/share
 export DUBIN=/usr/bin
-export ZSH_CUSTOM=$HOME/dotfiles/omzsh
 
 export KEYTIMEOUT=3
-ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"antigen use oh-my-zsh
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -17,9 +14,6 @@ ZSH_THEME=""
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -40,11 +34,9 @@ COMPLETION_WAITING_DOTS="true"
 
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd.mm.yyyy"
-#colorize zsh-syntax-highlighting
-#plugins=(history-substring-search vi-mode tmux thefuck archlinux sudo common-aliases dircycle per-directory-history z colored-man-pages copydir copyfile extract)
-plugins=()
 # User configuration
 echo $PATH >> $HOME/buffer
+source $HOME/dotfiles/myrc.zsh
 source $HOME/antigen/antigen.zsh
 antigen bundle RobSis/zsh-completion-generator
 antigen bundle srijanshetty/zsh-pip-completion
@@ -52,10 +44,9 @@ antigen use oh-my-zsh
 for p (history-substring-search vi-mode tmux thefuck archlinux sudo common-aliases dircycle per-directory-history z colored-man-pages copyfile copydir extract);
   do antigen bundle $p;
 done;
-antigen apply
-source $HOME/dotfiles/myrc.zsh
-#source $ZSH/oh-my-zsh.sh
 source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 BKEYS
-
+alias rm='rm -I'
