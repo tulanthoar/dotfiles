@@ -1,6 +1,7 @@
 set -g default-terminal "screen-256color" 
-bind C-c run "tmux save-buffer - | xclip -i -sel clipboard > /dev/null"
-bind C-v run "tmux set-buffer \"$(xclip -o -sel clipboard)\"; tmux paste-buffer"
+unbind p
+bind y run "tmux save-buffer - | xclip -i -sel clipboard > /dev/null"
+bind p run "tmux set-buffer \"$(xclip -o -sel clipboard)\"; tmux paste-buffer"
 unbind-key -n F1
 unbind-key -n F8
 unbind-key -n F5
