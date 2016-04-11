@@ -38,6 +38,8 @@ HIST_STAMPS="dd.mm.yyyy"
 echo $PATH >> $HOME/buffer
 source $HOME/dotfiles/myrc.zsh
 source $HOME/antigen/antigen.zsh
+antigen bundle sindresorhus/pretty-time-zsh
+antigen bundle bric3/nice-exit-code
 antigen bundle RobSis/zsh-completion-generator
 antigen bundle srijanshetty/zsh-pip-completion
 antigen use oh-my-zsh
@@ -50,3 +52,4 @@ antigen apply
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 BKEYS
 alias rm='rm -I'
+RPROMPT='$(nice_exit_code)'

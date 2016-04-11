@@ -29,6 +29,7 @@ zle -N p-paste
 alias zz="z ~"
 alias bytmux="byobu-tmux"
 alias fk="fuck"
+alias pretty-time="/home/man/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-sindresorhus-SLASH-pretty-time-zsh.git/pretty-time.zsh"
 alias pyls="ls *.py|percol|xargs python3"
 alias xx="exit"
 alias xmo="xmodmap ~/xmo; setxkbmap -option altwin:alt_super_win -option shift:both_shiftlock; xmodmap ~/xmo;"
